@@ -1,11 +1,13 @@
 import './App.css'
 import routes from "./routes.jsx";
 import {createBrowserRouter, RouterProvider} from "react-router";
-import Layout from "./components/Layout.jsx";
+import Layout from "./components/Layout.tsx";
 import ErrorPage from "./components/ErrorPage.tsx";
 import NotFound from "./components/NotFound.tsx";
 
-const router  = createBrowserRouter ([
+
+
+const router = createBrowserRouter ([
   {
     path: "/",
     element: <Layout />,

@@ -1,20 +1,31 @@
-import {Context, createContext, useContext, useEffect, useState} from "react";
+import {createContext, ReactElement, ReactNode, useContext, useEffect, useState} from "react";
 
-// @ts-ignore
-const ThemeContext: Context<any> = createContext()
+type Theme = "light" | "dark";
+interface ThemeContextType {
+    theme: Theme;
+    toggleTheme: () => void;
+}
 
-export const useTheme = () => useContext(ThemeContext);
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
-export const ThemeProvider = ({ children }:any) => {
-    const [theme, setTheme] = useState('dark');
+export const useTheme = (dark: string): ThemeContextType => {
+    const context = useContext(ThemeContext);
+    if (!context) {
+        throw new Error("useTheme must be used within a ThemeProvider");
+    }
+    return context;
+};
+
+export const ThemeProvider = ({ children }: {children:ReactNode}):ReactElement => {
+    const [theme, setTheme] = useState<Theme>("dark");
 
     useEffect(():void => {
-        const root: HTMLElement | null = document.getElementById("root");
-        // @ts-ignore
-        root.classList.remove("light-theme", "dark-theme");
-        // @ts-ignore
-        root.classList.add(`${theme}-theme`);
-    },[theme]);
+        const root = document.getElementById("root");
+        if (root) {
+            root.classList.remove("light-theme", "dark-theme");
+            root.classList.add(`${theme}-theme`);
+        }
+    }, [theme]);
 
     const toggleTheme = () => {
         setTheme((prev) => prev === "dark" ? "light" : "dark");

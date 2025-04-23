@@ -2,11 +2,11 @@ import {NavLink} from "react-router";
 import routes from "../routes.jsx";
 import {useTheme} from "../contexts/ThemeContext.tsx";
 import { AiFillMoon } from "react-icons/ai";
+import {FC} from "react";
 
 
-const HeaderMenu = () =>{
-    // @ts-ignore
-    const {toggleTheme}= useTheme('dark');
+const HeaderMenu: FC = () =>{
+    const { toggleTheme }= useTheme('dark');
     return(
         <div className="header-menu">
             <button onClick={toggleTheme}><AiFillMoon /></button>
