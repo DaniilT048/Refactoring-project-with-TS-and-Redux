@@ -1,10 +1,11 @@
-import {useNavigate} from "react-router";
+import {NavigateFunction, useNavigate} from "react-router";
+import {ReactElement} from "react";
 
-const Contact = () => {
+const Contact = ():ReactElement => {
     document.title = "Contact";
-    const navigate = useNavigate();
+    const navigate:NavigateFunction = useNavigate();
 
-    const handleClick = () => {
+    const handleClick = ():void => {
         navigate("/");
     }
     return(

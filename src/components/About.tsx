@@ -1,4 +1,6 @@
-const About = () => {
+import {ReactElement} from "react";
+
+const About = (): ReactElement => {
     document.title = "About";
     return(
         <h1>

@@ -6,7 +6,7 @@ import {FC} from "react";
 
 
 const HeaderMenu: FC = () =>{
-    const { toggleTheme }= useTheme('dark');
+    const { toggleTheme }= useTheme();
     return(
         <div className="header-menu">
             <button onClick={toggleTheme}><AiFillMoon /></button>

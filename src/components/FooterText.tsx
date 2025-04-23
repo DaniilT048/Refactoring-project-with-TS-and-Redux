@@ -1,4 +1,6 @@
-const FooterText = () => {
+import {ReactElement} from "react";
+
+const FooterText = ():ReactElement => {
     return <>
         <div className='footer-copyright'>
             <p>
