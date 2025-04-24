@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import {createSlice, Slice} from '@reduxjs/toolkit';
 
 interface ThemeSlice {
     theme: 'dark' | 'light';
@@ -8,7 +8,7 @@ const initialState: ThemeSlice = {
     theme: 'dark',
 }
 
-const themeSlice = createSlice({
+const themeSlice:Slice<ThemeSlice> = createSlice({
     name: 'theme',
     initialState,
     reducers:{
