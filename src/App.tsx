@@ -6,7 +6,7 @@ import ErrorPage from "./components/ErrorPage.tsx";
 import NotFound from "./components/NotFound.tsx";
 import {useEffect} from "react";
 import {useSelector} from "react-redux";
-import {RootState} from "./store/store.tsx";
+import {RootState} from "./store/store.ts";
 
 
 

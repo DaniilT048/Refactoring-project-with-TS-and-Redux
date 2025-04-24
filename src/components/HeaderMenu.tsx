@@ -4,15 +4,20 @@ import routes from "../routes.jsx";
 import { AiFillMoon } from "react-icons/ai";
 import {FC} from "react";
 import {useDispatch} from "react-redux";
-import {toggleTheme} from "../store/themeSlice.tsx";
+import {toggleTheme} from "../store/themeSlice.ts";
+import {AppDispatch} from "../store/store.ts";
 
 
 
 const HeaderMenu: FC = () =>{
-    const dispatch = useDispatch();
+    const dispatch: AppDispatch = useDispatch();
+    const handleClickTheme = () =>{
+        dispatch(toggleTheme())
+    }
+
     return(
         <div className="header-menu">
-            <button onClick={() => dispatch(toggleTheme())}><AiFillMoon/></button>
+            <button onClick={handleClickTheme}><AiFillMoon/></button>
             <ul className="header-menu-list">
             {routes.map((route) =>
                     <li key={route.path}>
