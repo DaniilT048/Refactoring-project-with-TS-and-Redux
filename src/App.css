@@ -50,6 +50,7 @@ html, body {
   text-decoration: none;
   list-style: none;
   justify-content: space-between;
+  gap: 30px;
 }
 
 .header-menu-list li {
